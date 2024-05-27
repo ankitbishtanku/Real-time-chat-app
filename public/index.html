@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Chat App</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+	<link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+	<script src="bootstrap/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	<script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
+  	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<div class="mainContainer">
+		<form>
+			<div class="mainDiv" id="chatBox">
+				<h3>Chat App</h3>
+				<div id="msgDiv"></div>
+				<div class="endDiv">
+					<input type="text" id="textMsg" name="text" data-emojiable="true">
+					<button id="btn-emoji">
+						<i class="fa-regular fa-face-smile"></i>
+					</button>
+					<button id="btn-send">
+						<i class="fa-regular fa-paper-plane"></i>
+					</button>
+					<emoji-picker emoji-version="15.0"></emoji-picker>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script src="socket.io/socket.io.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/emoji-picker-element@1.21.3/picker.min.js"></script>
+	<script type="text/javascript" src="bootstrap/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="script.js"></script>
+	
+	<script type="text/javascript">
+
+		$(document).ready( function(e){
+
+		  $('emoji-picker').css({
+		    'width': '289px',
+		    'height': '225px',
+		    'button': false
+		  });
+
+		  $('#textMsg').css({
+		    position: 'left'
+		  });
+
+		  $('#btn-send').click(function(e) {
+		    e.preventDefault();
+		  });
+
+		  $('#btn-emoji').click(function(e) {
+		    e.preventDefault();
+		    $('emoji-picker').toggle('hide');
+		  });
+		  
+		});
+	</script>
+</body>
+</html>

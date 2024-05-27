@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.mainContainer{
+	background-image: radial-gradient(circle, #ff339952, #6600cccf);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mainDiv{
+	border-radius: 8px;
+	height: 100vh;
+	margin: 30px;
+	width: 450px;
+	text-align: center;
+	position: relative;
+	background-color: white;
+}
+.mainDiv h3{
+	color: #ff3399;
+	margin-top: 15px;
+	padding-top: 15px;
+}
+.mainDiv p{
+	font-family: "PT Sans", sans-serif;
+	font-size: 20px;
+}
+.endDiv{
+	position: absolute;
+	bottom: 0;
+	display: flex;
+    background: #f1eeee;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+emoji-picker{
+	position: absolute;
+	bottom: 44px;
+    left: 0;
+	display:none;
+	--emoji-size: 18px;
+}
+.endDiv input{
+    padding: 10px 35px;
+    border-radius: 7px;
+    position: relative;
+    width: 450px;
+	outline: none;
+    border: none;
+    background: #f1eeee;
+}
+.endDiv button{
+	color: black;
+    border: none;
+    background: #f1eeee;
+}
+#btn-emoji{
+	margin-left: 0;
+	position: absolute;
+	top: 8px;
+    left: 5px;
+    font-size: 18px;
+}
+#btn-send{
+	position: absolute;
+    top: 8px;
+    right: 5px;
+    font-size: 18px;
+}
+.msgRight{
+	float : right;
+	clear : both;
+}
+.msgLeft{
+	float : left;
+	clear : both;
+}

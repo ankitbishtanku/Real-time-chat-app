@@ -1,21 +1,27 @@
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
 
-'use strict';
+var express = require('express');
+var app = express();
+var http = require('http').createServer(app);
+var io = require('socket.io')(http);
 
-const express = require('express');
+var port = 5500;
 
-// Constants
-const PORT = 3000;
-const HOST = '0.0.0.0';
+app.use(express.static('public'));
 
-// App
-const app = express();
-app.get('/', (req, res) => {
-	res.send('Hello remote world!\n');
+
+io.on('connection', (socket) => {
+	console.log('user connected');
+
+	socket.on('chat message', (msg) => {
+		io.emit('chat message', msg);
+	});
+
+	socket.on('disconnect', () => {
+		console.log('user disconnected');
+	});
+
 });
 
-app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);
+http.listen(port, () => {
+	console.log(`server is running or listening at port ${port}`);
+});
